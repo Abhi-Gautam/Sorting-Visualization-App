@@ -208,15 +208,19 @@ class MyHomePageState extends State<MyHomePage> {
                     ))),
             Expanded(
                 child: FlatButton(
+                    padding: EdgeInsets.all(18),
                     onPressed: isSorting ? null : sort,
-                    child:
-                        Text("SORT", style: TextStyle(color: Colors.white)))),
+                    child: Text("SORT",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold)))),
             Expanded(
                 child: FlatButton(
                     onPressed: isSorting ? null : changeSpeed,
                     child: Text(
                       "${speed + 1}x",
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ))),
           ],
         ),

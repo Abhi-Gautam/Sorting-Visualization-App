@@ -1,7 +1,4 @@
 import 'dart:async';
-import 'dart:math';
-
-import 'package:flutter/material.dart';
 import 'package:sorting_visulalization/main.dart';
 
 bubbleSort() async {

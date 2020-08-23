@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:sorting_visulalization/main.dart';
 
@@ -28,7 +25,7 @@ class BarPainter extends CustomPainter {
     canvas.drawLine(
         Offset(index * this.width, height - height / 20),
         Offset(index * this.width,
-            height - .2 * height - this.value.ceilToDouble()),
+            height - .35 * height - this.value.ceilToDouble()),
         paint);
   }
 
