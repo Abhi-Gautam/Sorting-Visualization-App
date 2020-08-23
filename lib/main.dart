@@ -8,7 +8,7 @@ import 'package:sorting_visulalization/sotring_algorithms/bubble_sort.dart';
 
 StreamController<List<int>> streamController = StreamController();
 List<int> numbers = [];
-var width;
+var width, height;
 String currentSortAlgo = 'bubble';
 double sampleSize = 320;
 bool isSorted = false;
@@ -171,6 +171,7 @@ class MyHomePageState extends State<MyHomePage> {
                   List<int> numbers = snapshot.data;
                   int counter = 0;
                   width = MediaQuery.of(context).size.width;
+                  height = MediaQuery.of(context).size.height;
                   return Row(
                     children: numbers.map((int num) {
                       counter++;

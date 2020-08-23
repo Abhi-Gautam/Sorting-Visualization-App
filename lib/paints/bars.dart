@@ -25,8 +25,11 @@ class BarPainter extends CustomPainter {
     paint.strokeWidth = width;
     paint.strokeCap = StrokeCap.round;
 
-    canvas.drawLine(Offset(index * this.width, 598),
-        Offset(index * this.width, 600 - this.value.ceilToDouble()), paint);
+    canvas.drawLine(
+        Offset(index * this.width, height - height / 20),
+        Offset(index * this.width,
+            height - .2 * height - this.value.ceilToDouble()),
+        paint);
   }
 
   @override
