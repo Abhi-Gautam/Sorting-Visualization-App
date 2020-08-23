@@ -14,13 +14,11 @@ class BarPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
-    if (value < 500 * .20)
+    if (value < 500 * .25)
       paint.color = Color(0xFFf38375);
-    else if (value < 500 * .40)
-      paint.color = Color(0xFFfb8f67);
-    else if (value < 500 * .60)
+    else if (value < 500 * .50)
       paint.color = Color(0xFFf7a399);
-    else if (value < 500 * .80)
+    else if (value < 500 * .75)
       paint.color = Color(0xFFfbc3bc);
     else
       paint.color = Color(0xFFffe3e0);
