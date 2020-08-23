@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xFF2e294e),
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
@@ -139,7 +140,7 @@ class MyHomePageState extends State<MyHomePage> {
       key: scaffoldKey,
       appBar: AppBar(
         title: Text(getTitle()),
-        backgroundColor: Color(0xFF0E4D64),
+        backgroundColor: Color(0xFF182043),
         actions: <Widget>[
           PopupMenuButton<String>(
             initialValue: currentSortAlgo,
@@ -189,6 +190,7 @@ class MyHomePageState extends State<MyHomePage> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
+        color: Color(0xFF011638),
         child: Row(
           children: <Widget>[
             Expanded(
@@ -199,16 +201,21 @@ class MyHomePageState extends State<MyHomePage> {
                             reset();
                             setSortAlgo(currentSortAlgo);
                           },
-                    child: Text("RESET"))),
+                    child: Text(
+                      "RESET",
+                      style: TextStyle(color: Colors.white),
+                    ))),
             Expanded(
                 child: FlatButton(
-                    onPressed: isSorting ? null : sort, child: Text("SORT"))),
+                    onPressed: isSorting ? null : sort,
+                    child:
+                        Text("SORT", style: TextStyle(color: Colors.white)))),
             Expanded(
                 child: FlatButton(
                     onPressed: isSorting ? null : changeSpeed,
                     child: Text(
                       "${speed + 1}x",
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ))),
           ],
         ),

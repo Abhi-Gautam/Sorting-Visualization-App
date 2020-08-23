@@ -10,7 +10,7 @@ class Platform extends CustomPainter {
     final p1 = Offset(0, 600);
     final p2 = Offset(width, 600);
     final paint = Paint()
-      ..color = Colors.black
+      ..color = Color(0xFF011638)
       ..strokeWidth = 4;
     canvas.drawLine(p1, p2, paint);
   }
