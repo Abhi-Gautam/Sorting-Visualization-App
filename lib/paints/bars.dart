@@ -11,14 +11,11 @@ class BarPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
-    if (value < 500 * .25)
-      paint.color = Color(0xFFf38375);
-    else if (value < 500 * .50)
-      paint.color = Color(0xFFf7a399);
-    else if (value < 500 * .75)
-      paint.color = Color(0xFFfbc3bc);
-    else
-      paint.color = Color(0xFFffe3e0);
+    if (colors[index] == 1) {
+      paint.color = Colors.red;
+    } else {
+      paint.color = Colors.white;
+    }
     paint.strokeWidth = width;
     paint.strokeCap = StrokeCap.round;
 
