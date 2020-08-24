@@ -4,6 +4,11 @@ import 'dart:ui';
 
 import 'package:sorting_visulalization/main.dart';
 import 'package:flutter/material.dart';
+import 'package:sorting_visulalization/color_list.dart';
+
+var length = 500;
+List<Color> colors;
+var toss = Random().nextInt(3);
 
 class DotPainter extends CustomPainter {
   final double width;
@@ -14,23 +19,21 @@ class DotPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    if (toss == 0)
+      colors = colors1;
+    else if (toss == 1)
+      colors = colors2;
+    else if (toss == 2) colors = colors3;
     Paint paint = Paint();
-    if (value < 500 * .25)
-      paint.color = Color(0xFFf38375);
-    else if (value < 500 * .50)
-      paint.color = Color(0xFFf7a399);
-    else if (value < 500 * .75)
-      paint.color = Color(0xFFfbc3bc);
+    if (value < .25 * length)
+      paint.color = colors[0];
+    else if (value < .5 * length)
+      paint.color = colors[1];
+    else if (value < .75 * length)
+      paint.color = colors[2];
     else
-      paint.color = Color(0xFFffe3e0);
-    paint.strokeWidth = width;
+      paint.color = colors[3];
     paint.strokeCap = StrokeCap.round;
-    canvas.drawLine(
-        Offset(index * this.width,
-            height - .25 * height - this.value.ceilToDouble()),
-        Offset(index * this.width,
-            height - .25 * height - this.value.ceilToDouble()),
-        paint);
     paint.strokeWidth = width * 5;
     canvas.drawPoints(
         PointMode.points,

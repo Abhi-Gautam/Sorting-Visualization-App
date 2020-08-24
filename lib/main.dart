@@ -3,7 +3,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sorting_visulalization/sotring_algorithms/bubble_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/insertion_sort.dart';
 import 'package:sorting_visulalization/main_body.dart';
+import 'package:sorting_visulalization/sotring_algorithms/quick_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/merge_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/selection_sort.dart';
+import 'package:sorting_visulalization/algorithm_list.dart';
+import 'package:sorting_visulalization/plot_list.dart';
 
 StreamController<List<int>> streamController = StreamController();
 List<int> numbers = [];
@@ -87,15 +93,6 @@ class MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  String getTitle() {
-    switch (currentSortAlgo) {
-      case "bubble":
-        return "Bubble Sort";
-        break;
-    }
-    return "done";
-  }
-
   changeSpeed() {
     if (speed >= 3) {
       speed = 0;
@@ -121,6 +118,18 @@ class MyHomePageState extends State<MyHomePage> {
     switch (currentSortAlgo) {
       case "bubble":
         await bubbleSort();
+        break;
+      case "insertion":
+        await insertionSort();
+        break;
+      case "selection":
+        await selectionSort();
+        break;
+      case "quick":
+        await quickSort(0, sampleSize.toInt() - 1);
+        break;
+      case "merge":
+        await mergeSort(0, sampleSize.toInt() - 1);
         break;
     }
 
@@ -160,14 +169,7 @@ class MyHomePageState extends State<MyHomePage> {
                         fontWeight: FontWeight.bold),
                     dropdownColor: Color(0xFF011638),
                     value: currentSortAlgo,
-                    items: [
-                      DropdownMenuItem(
-                        child: Text(
-                          "Bubble Sort",
-                        ),
-                        value: 'bubble',
-                      ),
-                    ],
+                    items: algo_list,
                     onChanged: (String value) {
                       reset();
                       setSortAlgo(value);
@@ -183,16 +185,7 @@ class MyHomePageState extends State<MyHomePage> {
                         fontWeight: FontWeight.bold),
                     dropdownColor: Color(0xFF011638),
                     value: currentPlotStyle,
-                    items: [
-                      DropdownMenuItem(
-                        child: Text("Bars"),
-                        value: 'bar',
-                      ),
-                      DropdownMenuItem(
-                        child: Text("Dots"),
-                        value: 'dot',
-                      )
-                    ],
+                    items: plot_list,
                     onChanged: (String value) {
                       reset();
                       setPlotStyle(value);

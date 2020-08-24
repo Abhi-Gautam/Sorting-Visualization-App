@@ -4,6 +4,7 @@ import 'package:sorting_visulalization/main.dart';
 import 'package:flutter/material.dart';
 import 'package:sorting_visulalization/paints/bars.dart';
 import 'package:sorting_visulalization/paints/dots.dart';
+import 'package:sorting_visulalization/paints/multiple_shapes.dart';
 
 class MainBody extends StatelessWidget {
   const MainBody({
@@ -38,13 +39,28 @@ class MainBody extends StatelessWidget {
                     );
                   }).toList(),
                 );
-              } else {
+              } else if (currentPlotStyle == 'dot') {
                 return Row(
                   children: numbers.map((int num) {
                     counter++;
                     return Container(
                       child: CustomPaint(
                         painter: DotPainter(
+                            index: counter,
+                            value: num,
+                            width:
+                                MediaQuery.of(context).size.width / sampleSize),
+                      ),
+                    );
+                  }).toList(),
+                );
+              } else {
+                return Row(
+                  children: numbers.map((int num) {
+                    counter++;
+                    return Container(
+                      child: CustomPaint(
+                        painter: MultiplePainter(
                             index: counter,
                             value: num,
                             width:
