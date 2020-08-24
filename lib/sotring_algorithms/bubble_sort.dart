@@ -5,6 +5,8 @@ bubbleSort() async {
   for (int i = 0; i < numbers.length; ++i) {
     for (int j = 0; j < numbers.length - i - 1; ++j) {
       if (numbers[j] > numbers[j + 1]) {
+        colors[j] = 1;
+        colors[j + 1] = 1;
         int temp = numbers[j];
         numbers[j] = numbers[j + 1];
         numbers[j + 1] = temp;
@@ -13,6 +15,8 @@ bubbleSort() async {
       await Future.delayed(getDuration(), () {});
 
       streamController.add(numbers);
+      colors[j] = 0;
+      colors[j + 1] = 0;
     }
   }
 }

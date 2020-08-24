@@ -7,6 +7,7 @@ import 'package:sorting_visulalization/main_body.dart';
 
 StreamController<List<int>> streamController = StreamController();
 List<int> numbers = [];
+List<int> colors = [];
 var width, height;
 String currentSortAlgo = 'bubble';
 String currentPlotStyle = 'bar';
@@ -49,7 +50,9 @@ class MyHomePageState extends State<MyHomePage> {
     sampleSize = MediaQuery.of(context).size.width / 2;
     for (int i = 0; i < sampleSize; ++i) {
       numbers.add(Random().nextInt(500));
+      colors.add(0);
     }
+    print(numbers.length);
     setState(() {});
   }
 
@@ -64,6 +67,7 @@ class MyHomePageState extends State<MyHomePage> {
     numbers = [];
     for (int i = 0; i < sampleSize; ++i) {
       numbers.add(Random().nextInt(500));
+      colors.add(0);
     }
     streamController.add(numbers);
   }
@@ -158,7 +162,7 @@ class MyHomePageState extends State<MyHomePage> {
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
-                    dropdownColor: Color(0xFF011638),
+                    focusColor: Color(0xFF011638),
                     value: currentSortAlgo,
                     items: [
                       DropdownMenuItem(
@@ -181,7 +185,7 @@ class MyHomePageState extends State<MyHomePage> {
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
-                    dropdownColor: Color(0xFF011638),
+                    focusColor: Color(0xFF011638),
                     value: currentPlotStyle,
                     items: [
                       DropdownMenuItem(
