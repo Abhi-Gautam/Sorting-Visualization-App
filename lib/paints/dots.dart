@@ -23,9 +23,15 @@ class DotPainter extends CustomPainter {
       paint.color = Color(0xFFfbc3bc);
     else
       paint.color = Color(0xFFffe3e0);
-    paint.strokeWidth = width * 5;
+    paint.strokeWidth = width;
     paint.strokeCap = StrokeCap.round;
-
+    canvas.drawLine(
+        Offset(index * this.width,
+            height - .25 * height - this.value.ceilToDouble()),
+        Offset(index * this.width,
+            height - .25 * height - this.value.ceilToDouble()),
+        paint);
+    paint.strokeWidth = width * 5;
     canvas.drawPoints(
         PointMode.points,
         [
