@@ -1,17 +1,12 @@
-# sorting_visulalization
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# Sorting-Visualization-App" 
+	What has been done  up until now:-
+	• Bubble sort working,
+	• Adding other algorithms will be easy as all the ground work has been set up.
+	
+	
+	What to do:-
+	• Change the initial speed from 1x to 4x.
+	• Remove the app bar feature and add dropdown menu to select for bar and dots. 
+	• Different color palate should be added for the bars.
+	• Once every sorting algorithm is implemented we will add the feature of dots together with bars.
+    
+  When both of them is complete we will think about adding path finding algorithms.
