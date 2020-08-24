@@ -34,7 +34,7 @@ class BarPainter extends CustomPainter {
 
     canvas.drawLine(
         Offset(index * this.width, height),
-        Offset(index * this.width, .8 * height - this.value.ceilToDouble()),
+        Offset(index * this.width, .85 * height - this.value.ceilToDouble()),
         paint);
   }
 
