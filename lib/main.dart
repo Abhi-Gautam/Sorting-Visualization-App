@@ -14,13 +14,15 @@ import 'package:sorting_visulalization/plot_list.dart';
 StreamController<List<int>> streamController = StreamController();
 List<int> numbers = [];
 var width, height;
-String currentSortAlgo = 'bubble';
+String currentSortAlgo = 'quick';
 String currentPlotStyle = 'bar';
 double sampleSize = 320;
 bool isSorted = false;
 bool isSorting = false;
 int speed = 0;
 int duration = 1500;
+var toss = 0;
+int max_len = 700;
 GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 Duration getDuration() {
   return Duration(microseconds: duration);
@@ -54,7 +56,7 @@ class MyHomePageState extends State<MyHomePage> {
     super.didChangeDependencies();
     sampleSize = MediaQuery.of(context).size.width / 2;
     for (int i = 0; i < sampleSize; ++i) {
-      numbers.add(Random().nextInt(500));
+      numbers.add(Random().nextInt(max_len));
     }
     setState(() {});
   }
@@ -69,7 +71,7 @@ class MyHomePageState extends State<MyHomePage> {
     isSorted = false;
     numbers = [];
     for (int i = 0; i < sampleSize; ++i) {
-      numbers.add(Random().nextInt(500));
+      numbers.add(Random().nextInt(max_len));
     }
     streamController.add(numbers);
   }
@@ -77,12 +79,14 @@ class MyHomePageState extends State<MyHomePage> {
   setSortAlgo(String type) {
     setState(() {
       currentSortAlgo = type;
+      toss = Random().nextInt(3);
     });
   }
 
   setPlotStyle(String type) {
     setState(() {
       currentPlotStyle = type;
+      toss = Random().nextInt(3);
     });
   }
 
@@ -126,10 +130,10 @@ class MyHomePageState extends State<MyHomePage> {
         await selectionSort();
         break;
       case "quick":
-        await quickSort(0, sampleSize.toInt() - 1);
+        await quickSort(0, sampleSize.toInt());
         break;
       case "merge":
-        await mergeSort(0, sampleSize.toInt() - 1);
+        await mergeSort(0, sampleSize.toInt());
         break;
     }
 

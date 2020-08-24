@@ -3,9 +3,8 @@ import 'package:sorting_visulalization/main.dart';
 import 'package:sorting_visulalization/color_list.dart';
 import 'dart:math';
 
-var length = 500;
+var length = max_len;
 List<Color> colors;
-var toss = Random().nextInt(3);
 
 class BarPainter extends CustomPainter {
   final double width;
@@ -35,7 +34,7 @@ class BarPainter extends CustomPainter {
 
     canvas.drawLine(
         Offset(index * this.width, height),
-        Offset(index * this.width, .6 * height - this.value.ceilToDouble()),
+        Offset(index * this.width, .8 * height - this.value.ceilToDouble()),
         paint);
   }
 

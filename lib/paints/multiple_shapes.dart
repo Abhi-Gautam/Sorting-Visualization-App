@@ -4,7 +4,7 @@ import 'package:sorting_visulalization/main.dart';
 import 'package:flutter/material.dart';
 import 'package:sorting_visulalization/color_list.dart';
 
-var length = 500;
+var length = max_len;
 
 class MultiplePainter extends CustomPainter {
   final double width;

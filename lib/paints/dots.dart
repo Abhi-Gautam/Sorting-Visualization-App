@@ -6,9 +6,8 @@ import 'package:sorting_visulalization/main.dart';
 import 'package:flutter/material.dart';
 import 'package:sorting_visulalization/color_list.dart';
 
-var length = 500;
+var length = max_len;
 List<Color> colors;
-var toss = Random().nextInt(3);
 
 class DotPainter extends CustomPainter {
   final double width;
@@ -39,7 +38,7 @@ class DotPainter extends CustomPainter {
         PointMode.points,
         [
           Offset(index * this.width,
-              height - .25 * height - this.value.ceilToDouble())
+              height - .22 * height - this.value.ceilToDouble())
         ],
         paint);
   }
