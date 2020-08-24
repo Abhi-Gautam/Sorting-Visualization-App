@@ -3,13 +3,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sorting_visulalization/paints/bars.dart';
-import 'package:sorting_visulalization/paints/platform.dart';
+import 'package:sorting_visulalization/paints/dots.dart';
 import 'package:sorting_visulalization/sotring_algorithms/bubble_sort.dart';
 
 StreamController<List<int>> streamController = StreamController();
 List<int> numbers = [];
 var width, height;
 String currentSortAlgo = 'bubble';
+String currentPlotStyle = 'dots';
 double sampleSize = 320;
 bool isSorted = false;
 bool isSorting = false;
@@ -65,6 +66,12 @@ class MyHomePageState extends State<MyHomePage> {
   setSortAlgo(String type) {
     setState(() {
       currentSortAlgo = type;
+    });
+  }
+
+  setPlotAlgo(String type) {
+    setState(() {
+      currentPlotStyle = type;
     });
   }
 
@@ -159,19 +166,18 @@ class MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: CustomPaint(
-        painter: Platform(),
-        child: SafeArea(
-          child: Container(
-            padding: const EdgeInsets.only(top: 0.0),
-            child: StreamBuilder<Object>(
-                initialData: numbers,
-                stream: streamController.stream,
-                builder: (context, snapshot) {
-                  List<int> numbers = snapshot.data;
-                  int counter = 0;
-                  width = MediaQuery.of(context).size.width;
-                  height = MediaQuery.of(context).size.height;
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.only(top: 0.0),
+          child: StreamBuilder<Object>(
+              initialData: numbers,
+              stream: streamController.stream,
+              builder: (context, snapshot) {
+                List<int> numbers = snapshot.data;
+                int counter = 0;
+                width = MediaQuery.of(context).size.width;
+                height = MediaQuery.of(context).size.height;
+                if (currentPlotStyle == 'bar') {
                   return Row(
                     children: numbers.map((int num) {
                       counter++;
@@ -186,8 +192,23 @@ class MyHomePageState extends State<MyHomePage> {
                       );
                     }).toList(),
                   );
-                }),
-          ),
+                } else {
+                  return Row(
+                    children: numbers.map((int num) {
+                      counter++;
+                      return Container(
+                        child: CustomPaint(
+                          painter: DotPainter(
+                              index: counter,
+                              value: num,
+                              width: MediaQuery.of(context).size.width /
+                                  sampleSize),
+                        ),
+                      );
+                    }).toList(),
+                  );
+                }
+              }),
         ),
       ),
       bottomNavigationBar: BottomAppBar(

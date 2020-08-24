@@ -4,7 +4,6 @@
 	
 	
 	What to do:-
-	• Change the initial speed from 1x to 4x.
 	• Remove the app bar feature and add dropdown menu to select for bar and dots. 
 	• Different color palate should be added for the bars.
 	• Once every sorting algorithm is implemented we will add the feature of dots together with bars.
