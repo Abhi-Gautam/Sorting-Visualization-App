@@ -2,15 +2,14 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:sorting_visulalization/paints/bars.dart';
-import 'package:sorting_visulalization/paints/dots.dart';
 import 'package:sorting_visulalization/sotring_algorithms/bubble_sort.dart';
+import 'package:sorting_visulalization/main_body.dart';
 
 StreamController<List<int>> streamController = StreamController();
 List<int> numbers = [];
 var width, height;
 String currentSortAlgo = 'bubble';
-String currentPlotStyle = 'dots';
+String currentPlotStyle = 'bar';
 double sampleSize = 320;
 bool isSorted = false;
 bool isSorting = false;
@@ -54,6 +53,12 @@ class MyHomePageState extends State<MyHomePage> {
     setState(() {});
   }
 
+  @override
+  void dispose() {
+    streamController.close();
+    super.dispose();
+  }
+
   reset() {
     isSorted = false;
     numbers = [];
@@ -69,7 +74,7 @@ class MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  setPlotAlgo(String type) {
+  setPlotStyle(String type) {
     setState(() {
       currentPlotStyle = type;
     });
@@ -136,79 +141,70 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  void dispose() {
-    streamController.close();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        title: Text(getTitle()),
-        backgroundColor: Color(0xFF182043),
-        actions: <Widget>[
-          PopupMenuButton<String>(
-            initialValue: currentSortAlgo,
-            itemBuilder: (ctx) {
-              return [
-                PopupMenuItem(
-                  value: 'bubble',
-                  child: Text("Bubble Sort"),
-                ),
-              ];
-            },
-            onSelected: (String value) {
-              reset();
-              setSortAlgo(value);
-            },
-          ),
-        ],
-      ),
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.only(top: 0.0),
-          child: StreamBuilder<Object>(
-              initialData: numbers,
-              stream: streamController.stream,
-              builder: (context, snapshot) {
-                List<int> numbers = snapshot.data;
-                int counter = 0;
-                width = MediaQuery.of(context).size.width;
-                height = MediaQuery.of(context).size.height;
-                if (currentPlotStyle == 'bar') {
-                  return Row(
-                    children: numbers.map((int num) {
-                      counter++;
-                      return Container(
-                        child: CustomPaint(
-                          painter: BarPainter(
-                              index: counter,
-                              value: num,
-                              width: MediaQuery.of(context).size.width /
-                                  sampleSize),
+        child: Column(
+          children: [
+            Container(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                DropdownButtonHideUnderline(
+                  child: DropdownButton(
+                    iconSize: 30,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                    dropdownColor: Color(0xFF011638),
+                    value: currentSortAlgo,
+                    items: [
+                      DropdownMenuItem(
+                        child: Text(
+                          "Bubble Sort",
                         ),
-                      );
-                    }).toList(),
-                  );
-                } else {
-                  return Row(
-                    children: numbers.map((int num) {
-                      counter++;
-                      return Container(
-                        child: CustomPaint(
-                          painter: DotPainter(
-                              index: counter,
-                              value: num,
-                              width: MediaQuery.of(context).size.width /
-                                  sampleSize),
-                        ),
-                      );
-                    }).toList(),
-                  );
-                }
-              }),
+                        value: 'bubble',
+                      ),
+                    ],
+                    onChanged: (String value) {
+                      reset();
+                      setSortAlgo(value);
+                    },
+                  ),
+                ),
+                DropdownButtonHideUnderline(
+                  child: DropdownButton(
+                    iconSize: 30,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                    dropdownColor: Color(0xFF011638),
+                    value: currentPlotStyle,
+                    items: [
+                      DropdownMenuItem(
+                        child: Text("Bars"),
+                        value: 'bar',
+                      ),
+                      DropdownMenuItem(
+                        child: Text("Dots"),
+                        value: 'dot',
+                      )
+                    ],
+                    onChanged: (String value) {
+                      reset();
+                      setPlotStyle(value);
+                    },
+                  ),
+                )
+              ],
+            )),
+            Container(
+              child: MainBody(),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: BottomAppBar(
