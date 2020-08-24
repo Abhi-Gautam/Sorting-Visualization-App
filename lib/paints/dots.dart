@@ -1,12 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:sorting_visulalization/main.dart';
+import 'dart:async';
+import 'dart:math';
+import 'dart:ui';
 
-class BarPainter extends CustomPainter {
+import 'package:sorting_visulalization/main.dart';
+import 'package:flutter/material.dart';
+
+class DotPainter extends CustomPainter {
   final double width;
   final int value;
   final int index;
 
-  BarPainter({this.width, this.value, this.index});
+  DotPainter({this.width, this.value, this.index});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -21,11 +25,19 @@ class BarPainter extends CustomPainter {
       paint.color = Color(0xFFffe3e0);
     paint.strokeWidth = width;
     paint.strokeCap = StrokeCap.round;
-
     canvas.drawLine(
-        Offset(index * this.width, height - height / 20),
         Offset(index * this.width,
             height - .25 * height - this.value.ceilToDouble()),
+        Offset(index * this.width,
+            height - .25 * height - this.value.ceilToDouble()),
+        paint);
+    paint.strokeWidth = width * 5;
+    canvas.drawPoints(
+        PointMode.points,
+        [
+          Offset(index * this.width,
+              height - .25 * height - this.value.ceilToDouble())
+        ],
         paint);
   }
 
