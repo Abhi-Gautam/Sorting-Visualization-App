@@ -8,6 +8,16 @@ import 'package:sorting_visulalization/main_body.dart';
 import 'package:sorting_visulalization/sotring_algorithms/quick_sort.dart';
 import 'package:sorting_visulalization/sotring_algorithms/merge_sort.dart';
 import 'package:sorting_visulalization/sotring_algorithms/selection_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/cocktail_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/comb_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/cycle_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/gnome_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/heap_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/oddeven_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/pigeonhole_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/shell_sort.dart';
+import 'package:sorting_visulalization/sotring_algorithms/stooge_sort.dart';
+
 import 'package:sorting_visulalization/algorithm_list.dart';
 import 'package:sorting_visulalization/plot_list.dart';
 
@@ -134,6 +144,33 @@ class MyHomePageState extends State<MyHomePage> {
         break;
       case "merge":
         await mergeSort(0, sampleSize.toInt());
+        break;
+      case "stooge":
+        await stoogesort(0, sampleSize.toInt());
+        break;
+      case "shell":
+        await shellSort();
+        break;
+      case "pigeonhole":
+        await pigeonHole();
+        break;
+      case "oddeven":
+        await oddEvenSort();
+        break;
+      case "heap":
+        await heapSort();
+        break;
+      case "gnome":
+        await gnomeSort();
+        break;
+      case "cycle":
+        await cycleSort();
+        break;
+      case "comb":
+        await combSort();
+        break;
+      case "cocktail":
+        await cocktailSort();
         break;
     }
 

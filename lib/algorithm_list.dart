@@ -31,4 +31,58 @@ List<DropdownMenuItem<String>> algo_list = [
     ),
     value: 'merge',
   ),
+  DropdownMenuItem(
+    child: Text(
+      "Heap Sort",
+    ),
+    value: "heap",
+  ),
+  DropdownMenuItem(
+    child: Text(
+      "Shell Sort",
+    ),
+    value: "shell",
+  ),
+  DropdownMenuItem(
+    child: Text(
+      "Comb Sort",
+    ),
+    value: "comb",
+  ),
+  DropdownMenuItem(
+    child: Text(
+      "PigeonHole Sort",
+    ),
+    value: "pigeonhole",
+  ),
+  DropdownMenuItem(
+    child: Text(
+      "Cycle Sort",
+    ),
+    value: "cycle",
+  ),
+  DropdownMenuItem(
+    child: Text(
+      "Cocktail Sort",
+    ),
+    value: "cocktail",
+  ),
+  DropdownMenuItem(
+    child: Text(
+      "Gnome Sort",
+    ),
+    value: "gnome",
+  ),
+  DropdownMenuItem(
+    child: Text(
+      "Stooge Sort",
+    ),
+    value: "stooge",
+  ),
+  DropdownMenuItem(
+    child: Text(
+      "OddEven Sort",
+    ),
+    value: "oddeven",
+  ),
 ];
