@@ -5,10 +5,8 @@
 	Different color palate added for the plot styles.
 	Added all the basic sorting algorithms.
 	Added a feature to sort colors.
-	Added a total of 14 sorting algorithms
+	Added a total of 14 sorting algorithms.
+    Now the play speed changes according to the algorithm you have selected.
 	
 	What to do:- 
-	Exception Checks!!
-	
-    
-  When both of them is complete we will think about adding path finding algorithms.
+	Figuring out how to add pathfinding algorithms.
