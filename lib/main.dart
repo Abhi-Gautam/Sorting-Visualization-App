@@ -13,7 +13,7 @@ import 'package:sorting_visulalization/plot_list.dart';
 
 StreamController<List<int>> streamController = StreamController();
 List<int> numbers = [];
-var width, height;
+var screen_width, screen_height;
 String currentSortAlgo = 'quick';
 String currentPlotStyle = 'bar';
 double sampleSize = 320;

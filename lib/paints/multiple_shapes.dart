@@ -45,13 +45,17 @@ class MultiplePainter extends CustomPainter {
         [Offset(index * this.width, this.value.ceilToDouble())], paint1);
     canvas.drawPoints(
         PointMode.points,
-        [Offset(index * this.width, this.value.ceilToDouble() + height / 7)],
+        [
+          Offset(
+              index * this.width, this.value.ceilToDouble() + screen_height / 7)
+        ],
         paint2);
     paint2.strokeWidth = width;
     canvas.drawPoints(
         PointMode.points,
         [
-          Offset(index * this.width, this.value.ceilToDouble() + 2 * height / 7)
+          Offset(index * this.width,
+              this.value.ceilToDouble() + 2 * screen_height / 7)
         ],
         paint3);
   }

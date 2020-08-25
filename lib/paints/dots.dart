@@ -33,13 +33,14 @@ class DotPainter extends CustomPainter {
     else
       paint.color = colors[3];
     paint.strokeCap = StrokeCap.round;
-    paint.strokeWidth = width * 5;
-    canvas.drawPoints(
-        PointMode.points,
-        [
-          Offset(index * this.width,
-              height - .22 * height - this.value.ceilToDouble())
-        ],
+    paint.strokeWidth = width;
+    canvas.drawCircle(
+        Offset(index * this.width, .7 * screen_height - this.value.toDouble()),
+        this.value / length * 15,
+        paint);
+    canvas.drawCircle(
+        Offset(index * this.width, this.value.toDouble() + screen_height / 10),
+        this.value / length * 15,
         paint);
   }
 

@@ -33,8 +33,9 @@ class BarPainter extends CustomPainter {
     paint.strokeCap = StrokeCap.round;
 
     canvas.drawLine(
-        Offset(index * this.width, height),
-        Offset(index * this.width, .85 * height - this.value.ceilToDouble()),
+        Offset(index * this.width, screen_height),
+        Offset(index * this.width,
+            .85 * screen_height - this.value.ceilToDouble()),
         paint);
   }
 

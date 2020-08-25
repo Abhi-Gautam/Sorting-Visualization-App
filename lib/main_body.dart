@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:sorting_visulalization/paints/bars.dart';
 import 'package:sorting_visulalization/paints/dots.dart';
 import 'package:sorting_visulalization/paints/multiple_shapes.dart';
+import 'package:sorting_visulalization/paints/color.dart';
 
 class MainBody extends StatelessWidget {
   const MainBody({
@@ -22,8 +23,8 @@ class MainBody extends StatelessWidget {
             builder: (context, snapshot) {
               List<int> numbers = snapshot.data;
               int counter = 0;
-              width = MediaQuery.of(context).size.width;
-              height = MediaQuery.of(context).size.height;
+              screen_width = MediaQuery.of(context).size.width;
+              screen_height = MediaQuery.of(context).size.height;
               if (currentPlotStyle == 'bar') {
                 return Row(
                   children: numbers.map((int num) {
@@ -54,13 +55,28 @@ class MainBody extends StatelessWidget {
                     );
                   }).toList(),
                 );
-              } else {
+              } else if (currentPlotStyle == 'multiple') {
                 return Row(
                   children: numbers.map((int num) {
                     counter++;
                     return Container(
                       child: CustomPaint(
                         painter: MultiplePainter(
+                            index: counter,
+                            value: num,
+                            width:
+                                MediaQuery.of(context).size.width / sampleSize),
+                      ),
+                    );
+                  }).toList(),
+                );
+              } else {
+                return Row(
+                  children: numbers.map((int num) {
+                    counter++;
+                    return Container(
+                      child: CustomPaint(
+                        painter: ColorPainter(
                             index: counter,
                             value: num,
                             width:
