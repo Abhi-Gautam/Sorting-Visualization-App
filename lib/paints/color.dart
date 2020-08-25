@@ -21,12 +21,12 @@ class ColorPainter extends CustomPainter {
     else if (toss == 1)
       color_wheel = 60;
     else
-      color_wheel = 180;
+      color_wheel = 0;
     Paint paint = Paint();
     paint.color =
-        HSVColor.fromAHSV(0.8, color_wheel + 120 * this.value / length, .8, .9)
+        HSVColor.fromAHSV(0.8, color_wheel + 240 * this.value / length, .8, .9)
             .toColor();
-    paint.strokeWidth = width;
+    paint.strokeWidth = width * 2;
     paint.strokeCap = StrokeCap.round;
 
     canvas.drawLine(Offset(index * this.width, screen_height),
