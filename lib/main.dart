@@ -23,6 +23,24 @@ import 'package:sorting_visulalization/plot_list.dart';
 
 StreamController<List<int>> streamController = StreamController();
 List<int> numbers = [];
+List<String> fastAlgos = [
+  "quick",
+  "merge",
+  "shell",
+  "heap",
+  "comb",
+  "pigeon",
+  "cycle"
+];
+List<String> slowAlgos = [
+  "insertion",
+  "selection",
+  "bubble",
+  "cocktail",
+  "gnome",
+  "stooge",
+  "oddeven"
+];
 var screen_width, screen_height;
 String currentSortAlgo = 'quick';
 String currentPlotStyle = 'bar';
@@ -108,16 +126,23 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   changeSpeed() {
-    if (speed >= 3) {
+    if (speed > 0) {
       speed = 0;
       duration = 1500;
     } else {
       speed++;
       duration = duration ~/ 2;
     }
-
     print(speed.toString() + " " + duration.toString());
     setState(() {});
+  }
+
+  changeSpeed2x() {
+    if (speed == 0) changeSpeed();
+  }
+
+  changeSpeed1x() {
+    if (speed == 1) changeSpeed();
   }
 
   sort() async {
@@ -214,6 +239,8 @@ class MyHomePageState extends State<MyHomePage> {
                     onChanged: (String value) {
                       reset();
                       setSortAlgo(value);
+                      if (fastAlgos.contains(value)) changeSpeed1x();
+                      if (slowAlgos.contains(value)) changeSpeed2x();
                     },
                   ),
                 ),
