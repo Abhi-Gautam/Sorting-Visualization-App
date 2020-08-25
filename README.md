@@ -4,6 +4,7 @@
 	Added dropdown menu to select for bar and dots
 	Different color palate added for the plot styles.
 	Added all the basic sorting algorithms.
+	Added a feature to sort colors.
 	
 	What to do:- 
 	Add all the sorting algorithms
