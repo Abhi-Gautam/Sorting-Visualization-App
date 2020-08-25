@@ -5,9 +5,9 @@
 	Different color palate added for the plot styles.
 	Added all the basic sorting algorithms.
 	Added a feature to sort colors.
+	Added a total of 14 sorting algorithms
 	
 	What to do:- 
-	Add all the sorting algorithms
 	Exception Checks!!
 	
     
