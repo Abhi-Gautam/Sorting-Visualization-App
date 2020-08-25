@@ -23,15 +23,7 @@ import 'package:sorting_visulalization/plot_list.dart';
 
 StreamController<List<int>> streamController = StreamController();
 List<int> numbers = [];
-List<String> fastAlgos = [
-  "quick",
-  "merge",
-  "shell",
-  "heap",
-  "comb",
-  "pigeon",
-  "cycle"
-];
+List<String> fastAlgos = ["quick", "merge", "shell", "heap", "comb", "cycle"];
 List<String> slowAlgos = [
   "insertion",
   "selection",

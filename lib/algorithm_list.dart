@@ -51,12 +51,6 @@ List<DropdownMenuItem<String>> algo_list = [
   ),
   DropdownMenuItem(
     child: Text(
-      "PigeonHole Sort",
-    ),
-    value: "pigeonhole",
-  ),
-  DropdownMenuItem(
-    child: Text(
       "Cycle Sort",
     ),
     value: "cycle",
