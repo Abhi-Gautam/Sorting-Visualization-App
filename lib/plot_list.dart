@@ -10,11 +10,15 @@ List<DropdownMenuItem<String>> plot_list = [
     value: 'dot',
   ),
   DropdownMenuItem(
-    child: Text("Multiple Dots"),
-    value: 'multiple',
-  ),
-  DropdownMenuItem(
     child: Text("Colors"),
     value: 'color',
+  ),
+  DropdownMenuItem(
+    child: Text("Pyramid"),
+    value: 'pyramid',
+  ),
+  DropdownMenuItem(
+    child: Text("Multiple Dots"),
+    value: 'multiple',
   ),
 ];

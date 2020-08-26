@@ -6,6 +6,7 @@ import 'package:sorting_visulalization/paints/bars.dart';
 import 'package:sorting_visulalization/paints/dots.dart';
 import 'package:sorting_visulalization/paints/multiple_shapes.dart';
 import 'package:sorting_visulalization/paints/color.dart';
+import 'package:sorting_visulalization/paints/pyramid.dart';
 
 class MainBody extends StatelessWidget {
   const MainBody({
@@ -70,7 +71,7 @@ class MainBody extends StatelessWidget {
                     );
                   }).toList(),
                 );
-              } else {
+              } else if (currentPlotStyle == 'color') {
                 return Row(
                   children: numbers.map((int num) {
                     counter++;
@@ -81,6 +82,22 @@ class MainBody extends StatelessWidget {
                             value: num,
                             width:
                                 MediaQuery.of(context).size.width / sampleSize),
+                      ),
+                    );
+                  }).toList(),
+                );
+              } else {
+                return Row(
+                  children: numbers.map((int num) {
+                    counter++;
+                    return Container(
+                      child: CustomPaint(
+                        painter: PyramidPainter(
+                            index: counter,
+                            value: num,
+                            width: .9 *
+                                MediaQuery.of(context).size.height /
+                                sampleSize),
                       ),
                     );
                   }).toList(),
