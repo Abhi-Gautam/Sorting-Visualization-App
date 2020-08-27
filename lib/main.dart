@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:sorting_visulalization/sotring_algorithms/bubble_sort.dart';
 import 'package:sorting_visulalization/sotring_algorithms/insertion_sort.dart';
-import 'package:sorting_visulalization/main_body.dart';
+import 'package:sorting_visulalization/sorting_screen.dart';
 import 'package:sorting_visulalization/sotring_algorithms/quick_sort.dart';
 import 'package:sorting_visulalization/sotring_algorithms/merge_sort.dart';
 import 'package:sorting_visulalization/sotring_algorithms/selection_sort.dart';
