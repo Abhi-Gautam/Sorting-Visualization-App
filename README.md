@@ -8,3 +8,10 @@
 	Added a total of 14 sorting algorithms.
     Now the play speed changes according to the algorithm you have selected.
 	Added a new plot style called pyramid now making a total of 5 different ploting styles.
+
+![](images/Screenshot_20200905-014958.png)
+![](images/Screenshot_20200905-014941.png)
+![](images/Screenshot_20200905-014842.png)
+![](images/Screenshot_20200905-014830.png)
+![](images/Screenshot_20200905-014845.png)
+![](images/Screenshot_20200905-014847.png)
