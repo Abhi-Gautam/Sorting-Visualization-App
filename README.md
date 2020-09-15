@@ -9,4 +9,10 @@
     Now the play speed changes according to the algorithm you have selected.
 	Added a new plot style called pyramid now making a total of 5 different ploting styles.
 
-![](images/vid.gif)
+<img src="images/vid.gif" width="250" height="500"/>
+<img src="images/1.png" width="250" height="500"/>
+<img src="images/4.png" width="250" height="500"/>
+
+<img src="images/5.png" width="250" height="500"/>
+
+<!-- <img src="images/6.png" width="250" height="500"/> -->
